@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'github-sdk_Example' do
+  pod 'github-sdk', :path => '../'
+
+  target 'github-sdk_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end

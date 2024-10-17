@@ -1,0 +1,6 @@
+osx_image: xcode7.3
+language: objective-c
+
+script:
+- set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/github-sdk.xcworkspace -scheme github-sdk-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
+- pod lib lint
