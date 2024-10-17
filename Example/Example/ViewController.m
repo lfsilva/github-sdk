@@ -10,20 +10,43 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) UILabel *label;
+
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    [self setupView];
+    [self setupLabel];
+    [self setupConstraints];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+- (void)setupView {
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)setupLabel {
+    self.label = [[UILabel alloc] init];
+    self.label.text = @"Tela Inicial";
+    self.label.textColor = [UIColor blackColor];
+    self.label.textAlignment = NSTextAlignmentCenter;
+    self.label.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [self.view addSubview:self.label];
+}
+
+- (void)setupConstraints {
+    [NSLayoutConstraint activateConstraints:@[
+        [self.label.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
+        [self.label.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor]
+    ]];
 }
 
 @end
