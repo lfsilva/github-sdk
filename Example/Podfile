@@ -7,7 +7,5 @@ target 'github-sdk_Example' do
 
   target 'github-sdk_Tests' do
     inherit! :search_paths
-
-    pod 'FBSnapshotTestCase'
   end
 end

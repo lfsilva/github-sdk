@@ -1,5 +1,5 @@
 //
-//  GGViewController.h
+//  AppDelegate.h
 //  github-sdk
 //
 //  Created by Leandro Fernandes on 10/17/2024.
@@ -8,6 +8,8 @@
 
 @import UIKit;
 
-@interface GGViewController : UIViewController
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
 
 @end

@@ -1,18 +1,18 @@
 //
-//  GGViewController.m
+//  ViewController.m
 //  github-sdk
 //
 //  Created by Leandro Fernandes on 10/17/2024.
 //  Copyright (c) 2024 Leandro Fernandes. All rights reserved.
 //
 
-#import "GGViewController.h"
+#import "ViewController.h"
 
-@interface GGViewController ()
+@interface ViewController ()
 
 @end
 
-@implementation GGViewController
+@implementation ViewController
 
 - (void)viewDidLoad
 {

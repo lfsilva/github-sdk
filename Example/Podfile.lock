@@ -1,27 +1,16 @@
 PODS:
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
   - github-sdk (0.1.0)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase
   - github-sdk (from `../`)
-
-SPEC REPOS:
-  trunk:
-    - FBSnapshotTestCase
 
 EXTERNAL SOURCES:
   github-sdk:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  github-sdk: 5650291fc28ba0ca5d2ece5b341aee46c89b5560
+  github-sdk: ce7aa6c60b622ec0d5c44145e10589848538122f
 
-PODFILE CHECKSUM: bb6af610930b1c3dd3954a41c08a0f7db3c6135f
+PODFILE CHECKSUM: 82919c4433884ec53320bc101b7b6050c98f0291
 
 COCOAPODS: 1.15.2

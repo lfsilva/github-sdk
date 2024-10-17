@@ -1,14 +1,14 @@
 //
-//  GGAppDelegate.m
+//  AppDelegate.m
 //  github-sdk
 //
 //  Created by Leandro Fernandes on 10/17/2024.
 //  Copyright (c) 2024 Leandro Fernandes. All rights reserved.
 //
 
-#import "GGAppDelegate.h"
+#import "AppDelegate.h"
 
-@implementation GGAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
