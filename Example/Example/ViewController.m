@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "GitHubSDK.h"
 
 @interface ViewController ()
 
 @property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) GitHubSDK *gitHubSDK;
 
 @end
 
@@ -18,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.gitHubSDK = [[GitHubSDK alloc] init];
     
     [self setupView];
     [self setupLabel];
@@ -34,7 +38,7 @@
 
 - (void)setupLabel {
     self.label = [[UILabel alloc] init];
-    self.label.text = @"Tela Inicial";
+    self.label.text = self.gitHubSDK.projectName;
     self.label.textColor = [UIColor blackColor];
     self.label.textAlignment = NSTextAlignmentCenter;
     self.label.translatesAutoresizingMaskIntoConstraints = NO;
