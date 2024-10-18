@@ -40,12 +40,10 @@ bundle install
 
 ## Uso
 
-A biblioteca github-sdk está disponível através do [CocoaPods](https://cocoapods.org). Para instalar e usar no seu projeto, adicione as seguintes linhas ao `Podfile`:
+A biblioteca github-sdk está disponível através do [CocoaPods](https://cocoapods.org). Para instalar e usar no seu projeto, adicione a seguinte linha ao `Podfile`:
 
 ```ruby
-source 'https://github.com/lfsilva/github-sdk.git'
-...
-pod 'github-sdk'
+pod 'github-sdk', :git => 'https://github.com/lfsilva/github-sdk.git'
 ```
 
 ## Author

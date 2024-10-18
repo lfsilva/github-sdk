@@ -13,13 +13,13 @@ SDK do desafio da Gazeus Games.
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'github-sdk/Classes/**/*'
+  s.source_files = 'github-sdk/Classes/**/*.{h,m}'
   
   # s.resource_bundles = {
   #   'github-sdk' => ['github-sdk/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
+  s.public_header_files = 'github-sdk/Classes/Public/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
