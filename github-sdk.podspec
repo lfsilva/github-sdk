@@ -14,18 +14,13 @@ SDK do desafio da Gazeus Games.
   s.ios.deployment_target = '13.0'
 
   s.source_files = 'github-sdk/Classes/**/*.{h,m}'
-  
-  # s.resource_bundles = {
-  #   'github-sdk' => ['github-sdk/Assets/*.png']
-  # }
-
   s.public_header_files = 'github-sdk/Classes/Public/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  
+  s.resource_bundles = {
+      'github-sdk' => ['github-sdk/Assets/*.{xcassets}']
+  }
   
   s.test_spec 'Tests' do |test_spec|
       test_spec.source_files = 'github-sdk/Tests/**/*.{h,m}'
-      test_spec.requires_app_host = false
-      #test_spec.dependency 'OCMock', '~> 3.8'
   end
 end

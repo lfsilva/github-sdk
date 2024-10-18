@@ -22,10 +22,11 @@
 }
 
 - (void)fetchRepos:(NSString*)user completion:(void (^)(NSArray<Repo *> *repos, NSError *error))completion {
+    NSString *apiToken = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"API_TOKEN"];
     NSString *url = [NSString stringWithFormat:@"https://api.github.com/users/%@/repos", user];
     NSDictionary *headers = @{
         @"Accept": @"application/vnd.github+json",
-        @"Authorization": @"Bearer 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",
+        @"Authorization": [NSString stringWithFormat:@"Bearer %@", apiToken],
         @"X-GitHub-Api-Version": @"2022-11-28"
     };
     [self.apiClient GET:url withHeaders:headers completion:^(NSDictionary *response, NSError *error) {
@@ -41,10 +42,11 @@
 }
 
 - (void)fetchTags:(NSString*)user andRepo:(NSString*)repo completion:(void (^)(NSArray<Tag *> *tags, NSError *error))completion {
+    NSString *apiToken = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"API_TOKEN"];
     NSString *url = [NSString stringWithFormat:@"https://api.github.com/repos/%@/%@/tags", user, repo];
     NSDictionary *headers = @{
         @"Accept": @"application/vnd.github+json",
-        @"Authorization": @"Bearer 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",
+        @"Authorization": [NSString stringWithFormat:@"Bearer %@", apiToken],
         @"X-GitHub-Api-Version": @"2022-11-28"
     };
     [self.apiClient GET:url withHeaders:headers completion:^(NSDictionary *response, NSError *error) {
