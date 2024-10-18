@@ -12,6 +12,6 @@
 @property (nonatomic, strong, readonly) NSURLSession *session;
 
 - (instancetype)initWithSession:(NSURLSession *)session;
-- (void)GET:(NSString *)urlString completion:(void (^)(NSDictionary *response, NSError *error))completion;
+- (void)GET:(NSString *)urlString withHeaders:(NSDictionary<NSString *, NSString *> *)headers completion:(void (^)(NSDictionary *response, NSError *error))completion;
 
 @end

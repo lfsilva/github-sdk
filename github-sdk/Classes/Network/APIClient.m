@@ -21,13 +21,20 @@
     return self;
 }
 
-- (void)GET:(NSString *)urlString completion:(void (^)(NSDictionary *response, NSError *error))completion {
+- (void)GET:(NSString *)urlString withHeaders:(NSDictionary<NSString *, NSString *> *)headers completion:(void (^)(NSDictionary *response, NSError *error))completion {
     
     NSURLComponents *components = [NSURLComponents componentsWithString:urlString];
     
     NSURL *url = components.URL;
     
-    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"GET"];
+    
+    for (NSString *key in headers) {
+        [request setValue:headers[key] forHTTPHeaderField:key];
+    }
+    
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request
                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error) {
             completion(nil, error);
