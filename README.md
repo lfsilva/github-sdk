@@ -46,6 +46,10 @@ A biblioteca github-sdk está disponível através do [CocoaPods](https://cocoap
 pod 'github-sdk', :git => 'https://github.com/lfsilva/github-sdk.git'
 ```
 
+No target `Example`, modificar o valor da variável de usuário `API_TOKEN` para o valor do token de autenticação do GitHub, de acordo com a seguinte documentação:
+
+https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+
 ## Author
 
 Leandro Fernandes, lfsilva@me.com
