@@ -7,10 +7,6 @@
 
 #import "GitHubClient.h"
 
-@interface GitHubClient()
-
-@end
-
 @implementation GitHubClient
 
 - (instancetype)init {
