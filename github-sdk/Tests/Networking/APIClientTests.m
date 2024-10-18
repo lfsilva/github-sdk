@@ -6,23 +6,24 @@
 //
 
 #import "APIClientTests.h"
+#import "APIClient.h"
 #import "MockURLSession.h"
 
 @implementation APIClientTests {
-    APIClient *client;
     MockURLSession *mockSession;
+    APIClient *sut;
 }
 
 - (void)setUp {
     [super setUp];
     
     mockSession = [[MockURLSession alloc] init];
-    client = [[APIClient alloc] initWithSession:mockSession];
+    sut = [[APIClient alloc] initWithSession:mockSession];
 }
 
 - (void)tearDown {
-    client = nil;
     mockSession = nil;
+    sut = nil;
     
     [super tearDown];
 }
@@ -34,7 +35,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"GET Request Success"];
     
-    [client GET:@"https://api.example.com/user" completion:^(id response, NSError *error) {
+    [sut GET:@"https://api.example.com/user" withHeaders:nil completion:^(id response, NSError *error) {
         XCTAssertNil(error, "Erro deve ser nulo");
         
         NSDictionary *responseDict = (NSDictionary *)response;
@@ -54,7 +55,7 @@
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"GET Request Failure"];
     
-    [client GET:@"https://api.example.com/user" completion:^(id response, NSError *error) {
+    [sut GET:@"https://api.example.com/user" withHeaders:nil completion:^(id response, NSError *error) {
         XCTAssertNotNil(error, "Erro não deve ser nulo");
         XCTAssertEqual(error.code, 500, "Código de erro deve ser 500");
         XCTAssertNil(response, "Resposta deve ser nula em caso de erro");

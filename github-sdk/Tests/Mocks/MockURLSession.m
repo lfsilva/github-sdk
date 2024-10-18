@@ -7,13 +7,9 @@
 
 #import "MockURLSession.h"
 
-@interface MockURLSession()
-
-@end
-
 @implementation MockURLSession
 
-- (NSURLSessionDataTask *)dataTaskWithURL:(NSURL *)url completionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler {
+- (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request completionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler {
     completionHandler(self.mockData, nil, self.mockError);
     return nil;
 }
