@@ -5,9 +5,18 @@
 //  Created by Leandro Silva on 17/10/24.
 //
 
+#import <Reachability/Reachability.h>
 #import "APIClient.h"
+#import "CacheService.h"
+
+@interface APIClient()
+
+@property (nonatomic, strong) CacheService *cacheService;
+
+@end
 
 @implementation APIClient
+
 
 - (instancetype)init {
     return [self initWithSession:[NSURLSession sharedSession]];
@@ -17,11 +26,31 @@
     self = [super init];
     if (self) {
         _session = session;
+        _cacheService = [[CacheService alloc] init];
     }
     return self;
 }
 
 - (void)GET:(NSString *)urlString withHeaders:(NSDictionary<NSString *, NSString *> *)headers completion:(void (^)(NSDictionary *response, NSError *error))completion {
+    
+    if (![self isConnected]) {
+        NSData *cachedData = [self.cacheService loadDataFromCache:urlString];
+        if (cachedData) {
+            NSError *jsonError;
+            NSDictionary *cachedResponse = [NSJSONSerialization JSONObjectWithData:cachedData options:0 error:&jsonError];
+            if (jsonError) {
+                completion(nil, jsonError);
+            } else {
+                completion(cachedResponse, nil);
+            }
+        } else {
+            NSError *cacheError = [NSError errorWithDomain:@"APIClientErrorDomain"
+                                                      code:101
+                                                  userInfo:@{NSLocalizedDescriptionKey: @"No cached data available and no internet connection."}];
+            completion(nil, cacheError);
+        }
+        return;
+    }
     
     NSURLComponents *components = [NSURLComponents componentsWithString:urlString];
     
@@ -52,10 +81,9 @@
         
         if ([json isKindOfClass:[NSArray class]]) {
             completion(json, jsonError);
+            [self.cacheService saveDataToCache:data forURL:urlString];
             return;
         }
-        
-        //dgf sfg
         
         NSString *status = json[@"status"];
         NSString *message = json[@"message"];
@@ -66,11 +94,15 @@
             completion(nil, error);
             return;
         }
-        
-        completion(json, jsonError);
     }];
     
     [dataTask resume];
+}
+
+- (BOOL)isConnected {
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [reachability currentReachabilityStatus];
+    return networkStatus != NotReachable;
 }
 
 @end

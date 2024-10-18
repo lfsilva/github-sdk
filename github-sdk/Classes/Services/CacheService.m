@@ -23,9 +23,14 @@
 }
 
 - (NSString *)cachePathForURL:(NSString *)urlString {
+    NSString *encodedKey = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
     NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
-    NSString *fileName = [[urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]] stringByAppendingString:@".cache"];
+    NSString *fileName = [[encodedKey stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]] stringByAppendingString:@".cache"];
     return [cacheDir stringByAppendingPathComponent:fileName];
+}
+
+- (NSString *)encodedKey:(NSString *)key {
+    return [key stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
 }
 
 @end

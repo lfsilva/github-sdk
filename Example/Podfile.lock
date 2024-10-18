@@ -1,18 +1,26 @@
 PODS:
-  - github-sdk (0.1.0)
-  - github-sdk/Tests (0.1.0)
+  - github-sdk (0.1.0):
+    - Reachability (~> 3.2)
+  - github-sdk/Tests (0.1.0):
+    - Reachability (~> 3.2)
+  - Reachability (3.2)
 
 DEPENDENCIES:
   - github-sdk (from `../`)
   - github-sdk/Tests (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Reachability
 
 EXTERNAL SOURCES:
   github-sdk:
     :path: "../"
 
 SPEC CHECKSUMS:
-  github-sdk: 89edff93bf05570fe17062a2b8405705d25d2761
+  github-sdk: 4298122327248ac6bccf3b7a81fe90dcdf7f1d00
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
 
-PODFILE CHECKSUM: c78c402542caa0a0b595ab0f0615c304a9349f81
+PODFILE CHECKSUM: cfc626ff9877997ebd3b1292ca3ae07394529c72
 
 COCOAPODS: 1.15.2

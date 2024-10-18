@@ -1,7 +1,17 @@
 use_frameworks!
 
-platform :ios, '10.0'
+platform :ios, '13.0'
 
 target 'Example' do
   pod 'github-sdk', :path => '../', :testspecs => ['Tests']
+  
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      if target.name == 'Reachability'
+        target.build_configurations.each do |config|
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+        end
+      end
+    end
+  end
 end

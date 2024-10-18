@@ -20,6 +20,8 @@ SDK do desafio da Gazeus Games.
       'github-sdk' => ['github-sdk/Assets/*.{xcassets}']
   }
   
+  s.dependency 'Reachability', '~> 3.2'
+  
   s.test_spec 'Tests' do |test_spec|
       test_spec.source_files = 'github-sdk/Tests/**/*.{h,m}'
   end
