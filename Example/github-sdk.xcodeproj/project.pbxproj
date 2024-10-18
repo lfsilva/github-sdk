@@ -372,7 +372,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DEC32EE9CEBE8790BF2D8B3C /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
-				API_TOKEN = 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;
+				API_TOKEN = seu_token;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/github-sdk-Prefix.pch";
@@ -390,7 +390,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BC12017874BA7AC049442176 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
-				API_TOKEN = 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;
+				API_TOKEN = seu_token;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/github-sdk-Prefix.pch";
