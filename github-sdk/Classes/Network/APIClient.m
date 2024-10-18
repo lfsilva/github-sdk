@@ -9,13 +9,16 @@
 
 @implementation APIClient
 
-+ (instancetype)sharedClient {
-    static APIClient *sharedClient = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedClient = [[self alloc] init];
-    });
-    return sharedClient;
+- (instancetype)init {
+    return [self initWithSession:[NSURLSession sharedSession]];
+}
+
+- (instancetype)initWithSession:(NSURLSession *)session {
+    self = [super init];
+    if (self) {
+        _session = session;
+    }
+    return self;
 }
 
 - (void)GET:(NSString *)urlString completion:(void (^)(NSDictionary *response, NSError *error))completion {
@@ -23,9 +26,8 @@
     NSURLComponents *components = [NSURLComponents componentsWithString:urlString];
     
     NSURL *url = components.URL;
-    NSURLSession *session = [NSURLSession sharedSession];
     
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url
                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error) {
             completion(nil, error);

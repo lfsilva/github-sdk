@@ -1,16 +1,18 @@
 PODS:
   - github-sdk (0.1.0)
+  - github-sdk/Tests (0.1.0)
 
 DEPENDENCIES:
   - github-sdk (from `../`)
+  - github-sdk/Tests (from `../`)
 
 EXTERNAL SOURCES:
   github-sdk:
     :path: "../"
 
 SPEC CHECKSUMS:
-  github-sdk: 2ebc13004227d655adb7084dcb946046b00fb29d
+  github-sdk: 580933a1f48cc49faf7ca2e6464c807f536c13e6
 
-PODFILE CHECKSUM: 9c38028365cda0088b6527f4a32ddd9833a432ad
+PODFILE CHECKSUM: c78c402542caa0a0b595ab0f0615c304a9349f81
 
 COCOAPODS: 1.15.2

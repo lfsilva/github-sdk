@@ -22,4 +22,10 @@ SDK do desafio da Gazeus Games.
   s.public_header_files = 'github-sdk/Classes/Public/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  
+  s.test_spec 'Tests' do |test_spec|
+      test_spec.source_files = 'github-sdk/Tests/**/*.{h,m}'
+      test_spec.requires_app_host = false
+      #test_spec.dependency 'OCMock', '~> 3.8'
+  end
 end
