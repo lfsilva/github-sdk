@@ -14,7 +14,6 @@
     if (self) {
         _name = dictionary[@"name"];
         _detail = dictionary[@"description"];
-        _private = [dictionary[@"private"] boolValue];
     }
     return self;
 }

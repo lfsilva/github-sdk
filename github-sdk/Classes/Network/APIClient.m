@@ -43,6 +43,30 @@
         
         NSError *jsonError = nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        
+        if (json == nil || json.count == 0) {
+            NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:404 userInfo:nil];
+            completion(nil, error);
+            return;
+        }
+        
+        if ([json isKindOfClass:[NSArray class]]) {
+            completion(json, jsonError);
+            return;
+        }
+        
+        //dgf sfg
+        
+        NSString *status = json[@"status"];
+        NSString *message = json[@"message"];
+        if (status != nil && message != nil) {
+            NSMutableDictionary* details = [NSMutableDictionary dictionary];
+            [details setValue:message forKey:NSLocalizedDescriptionKey];
+            NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:[status intValue] userInfo:details];
+            completion(nil, error);
+            return;
+        }
+        
         completion(json, jsonError);
     }];
     

@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  ReposViewController.h
 //  github-sdk
 //
 //  Created by Leandro Fernandes on 10/17/2024.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface ReposViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @end

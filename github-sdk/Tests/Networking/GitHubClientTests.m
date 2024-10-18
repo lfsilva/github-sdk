@@ -31,8 +31,7 @@
 - (void)testGETRepoRequestSuccess {
     NSDictionary *mockResponse = @{
         @"name": @"quicktype",
-        @"description": @"Generate types and converters from JSON, Schema, and GraphQL",
-        @"private": @0
+        @"description": @"Generate types and converters from JSON, Schema, and GraphQL"
     };
     NSData *mockData = [NSJSONSerialization dataWithJSONObject:[NSArray arrayWithObject:mockResponse] options:0 error:nil];
     mockClient.mockData = mockData;
@@ -45,7 +44,6 @@
         Repo *repo = repos.firstObject;
         XCTAssertEqualObjects(repo.name, @"quicktype", "Nome do repositório deve ser quicktype");
         XCTAssertEqualObjects(repo.detail, @"Generate types and converters from JSON, Schema, and GraphQL", "Descrição do repositório deve ser válida");
-        XCTAssertEqual(repo.private, NO, "Deve ser um repositório privado");
         
         [expectation fulfill];
     }];

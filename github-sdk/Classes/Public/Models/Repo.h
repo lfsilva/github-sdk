@@ -11,7 +11,6 @@
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *detail;
-@property (nonatomic, assign) BOOL private;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

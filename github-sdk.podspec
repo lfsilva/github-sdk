@@ -11,7 +11,7 @@ SDK do desafio da Gazeus Games.
   s.author           = { 'Leandro Fernandes' => 'lfsilva@me.com' }
   s.source           = { :git => 'https://github.com/lfsilva/github-sdk.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '13.0'
 
   s.source_files = 'github-sdk/Classes/**/*.{h,m}'
   
