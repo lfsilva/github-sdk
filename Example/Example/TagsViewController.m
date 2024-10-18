@@ -1,29 +1,26 @@
 //
-//  ReposViewController.m
+//  TagsViewController.m
 //  github-sdk
 //
 //  Created by Leandro Fernandes on 10/17/2024.
 //  Copyright (c) 2024 Leandro Fernandes. All rights reserved.
 //
 
-#import "ReposViewController.h"
-#import "GitHubSDK.h"
-#import "Repo.h"
 #import "TagsViewController.h"
+#import "GitHubSDK.h"
+#import "Tag.h"
 
-@interface ReposViewController ()
+@interface TagsViewController ()
 
 @property (nonatomic, strong) GitHubSDK *gitHubSDK;
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) UISearchBar *searchBar;
-@property (nonatomic, strong) NSArray<Repo *> *data;
+@property (nonatomic, strong) NSArray<Tag *> *data;
 @property (nonatomic, strong) UILabel *emptyStateLabel;
-@property (nonatomic, strong) NSString *user;
 
 @end
 
-@implementation ReposViewController
+@implementation TagsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,11 +29,12 @@
     
     [self setupView];
     [self setupTableView];
-    [self setupSearchBar];
     [self setupEmptyView];
     [self setupLoading];
     
     [self hideEmptyView];
+    
+    [self fetchData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,28 +42,17 @@
 }
 
 - (void)setupView {
-    self.title = @"Repositórios";
+    self.title = @"Tags";
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)setupTableView {
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
     [self.view addSubview:self.tableView];
-}
-
-- (void)setupSearchBar {
-    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectZero];
-    self.searchBar.delegate = self;
-    self.searchBar.placeholder = @"Usuário";
-    self.searchBar.showsCancelButton = YES;
-    [self.searchBar sizeToFit];
-    
-    self.tableView.tableHeaderView = self.searchBar;
 }
 
 - (void)setupEmptyView {
@@ -106,11 +93,11 @@
     [self.activityIndicator stopAnimating];
 }
 
-- (void)fetchData:(NSString*)user {
+- (void)fetchData {
     [self startLoading];
     
-    [self.gitHubSDK reposOf:user completion:^(NSArray<Repo *> *repos, NSError *error) {
-        self.data = repos;
+    [self.gitHubSDK tagsOf:self.repo belongsTo:self.user completion:^(NSArray<Tag *> *tags, NSError *error) {
+        self.data = tags;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self stoptLoading];
@@ -138,8 +125,6 @@
     }
     
     cell.textLabel.text = self.data[indexPath.row].name;
-    cell.detailTextLabel.text = [self.data[indexPath.row].detail isEqual:[NSNull null]] ? @"-" : self.data[indexPath.row].detail;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
@@ -148,29 +133,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    TagsViewController *viewController = [[TagsViewController alloc] init];
-    viewController.user = self.user;
-    viewController.repo = self.data[indexPath.row].name;
-    
-    [self.navigationController pushViewController:viewController animated:YES];
-}
-
-#pragma mark - UISearchBarDelegate
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    self.user = searchBar.text;
-    [self fetchData:self.user];
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    self.data = @[];
-    [self.tableView reloadData];
-    
-    self.user = @"";
-    self.searchBar.text = @"";
-    
-    [searchBar resignFirstResponder];
 }
 
 @end

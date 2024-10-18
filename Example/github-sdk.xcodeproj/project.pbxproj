@@ -17,6 +17,7 @@
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6D76FA91142FC0373705CC32 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D6305CCA04087C593D5F72 /* Pods_Example.framework */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
+		9C86343C2CC2EF1F0021D56F /* TagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C86343B2CC2EF1F0021D56F /* TagsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		85D6305CCA04087C593D5F72 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		888F3EC61FBDDF86CB4C0A52 /* Pods-github-sdk_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-github-sdk_Example.release.xcconfig"; path = "Target Support Files/Pods-github-sdk_Example/Pods-github-sdk_Example.release.xcconfig"; sourceTree = "<group>"; };
 		940A4734EA3BC4B988661F2D /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		9C86343A2CC2EF1F0021D56F /* TagsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagsViewController.h; sourceTree = "<group>"; };
+		9C86343B2CC2EF1F0021D56F /* TagsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsViewController.m; sourceTree = "<group>"; };
 		9CF2DC86AFD541E0C72CC0FB /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3F6EB03FFC8AD221820C8B3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		B62EBE3A0DD9A42B52557C10 /* github-sdk.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "github-sdk.podspec"; path = "../github-sdk.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -119,6 +122,8 @@
 				6003F59D195388D20070C39A /* AppDelegate.m */,
 				6003F5A5195388D20070C39A /* ReposViewController.h */,
 				6003F5A6195388D20070C39A /* ReposViewController.m */,
+				9C86343A2CC2EF1F0021D56F /* TagsViewController.h */,
+				9C86343B2CC2EF1F0021D56F /* TagsViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -260,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* AppDelegate.m in Sources */,
+				9C86343C2CC2EF1F0021D56F /* TagsViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* ReposViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
@@ -364,7 +370,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DEC32EE9CEBE8790BF2D8B3C /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
-				API_TOKEN = seu_token;
+				API_TOKEN = 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;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/github-sdk-Prefix.pch";
@@ -382,7 +388,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BC12017874BA7AC049442176 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
-				API_TOKEN = seu_token;
+				API_TOKEN = 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;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/github-sdk-Prefix.pch";
