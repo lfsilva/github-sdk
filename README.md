@@ -1,11 +1,6 @@
 # github-sdk
 
-[![CI Status](https://img.shields.io/travis/lfsilva/github-sdk.svg?style=flat)](https://travis-ci.org/lfsilva/github-sdk)
-[![Version](https://img.shields.io/cocoapods/v/github-sdk.svg?style=flat)](https://cocoapods.org/pods/github-sdk)
-[![License](https://img.shields.io/cocoapods/l/github-sdk.svg?style=flat)](https://cocoapods.org/pods/github-sdk)
-[![Platform](https://img.shields.io/cocoapods/p/github-sdk.svg?style=flat)](https://cocoapods.org/pods/github-sdk)
-
-Desafio da Gazeus Games.
+SDK do GitHub.
 
 ## Pré-requisitos
 
