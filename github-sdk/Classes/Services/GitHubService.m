@@ -1,13 +1,13 @@
 //
-//  GitHubClient.m
+//  GitHubService.m
 //  Pods
 //
 //  Created by Leandro Silva on 17/10/24.
 //
 
-#import "GitHubClient.h"
+#import "GitHubService.h"
 
-@implementation GitHubClient
+@implementation GitHubService
 
 - (instancetype)init {
     return [self initWithAPIClient:[[APIClient alloc] init]];

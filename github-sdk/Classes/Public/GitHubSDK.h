@@ -11,7 +11,6 @@
 
 @interface GitHubSDK : NSObject
 
-- (NSString*) projectName;
 - (void)reposOf:(NSString*)user completion:(void (^)(NSArray<Repo *> *repos, NSError *error))completion;
 - (void)tagsOf:(NSString*)repo belongsTo:(NSString*)user completion:(void (^)(NSArray<Tag *> *tags, NSError *error))completion;
 

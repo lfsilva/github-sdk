@@ -6,11 +6,11 @@
 //
 
 #import "GitHubSDK.h"
-#import "GitHubClient.h"
+#import "GitHubService.h"
 
 @interface GitHubSDK()
 
-@property (nonatomic, strong, readonly) GitHubClient *client;
+@property (nonatomic, strong, readonly) GitHubService *service;
 
 @end
 
@@ -19,21 +19,17 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _client = [[GitHubClient alloc] init];
+        _service = [[GitHubService alloc] init];
     }
     return self;
 }
 
-- (NSString*) projectName {
-    return @"GitHub SDK";
-}
-
 - (void)reposOf:(NSString*)user completion:(void (^)(NSArray<Repo *> *repos, NSError *error))completion {
-    [self.client fetchRepos:user completion:completion];
+    [self.service fetchRepos:user completion:completion];
 }
 
 - (void)tagsOf:(NSString*)repo belongsTo:(NSString*)user completion:(void (^)(NSArray<Tag *> *tags, NSError *error))completion {
-    [self.client fetchTags:user andRepo:repo completion:completion];
+    [self.service fetchTags:user andRepo:repo completion:completion];
 }
 
 @end

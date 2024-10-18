@@ -1,24 +1,24 @@
 //
-//  GitHubClientTests.m
+//  GitHubServiceTests.m
 //  Pods
 //
 //  Created by Leandro Silva on 17/10/24.
 //
 
-#import "GitHubClientTests.h"
+#import "GitHubServiceTests.h"
 #import "MockAPIClient.h"
-#import "GitHubClient.h"
+#import "GitHubService.h"
 
-@implementation GitHubClientTests {
+@implementation GitHubServiceTests {
     MockAPIClient *mockClient;
-    GitHubClient *sut;
+    GitHubService *sut;
 }
 
 - (void)setUp {
     [super setUp];
     
     mockClient = [[MockAPIClient alloc] init];
-    sut = [[GitHubClient alloc] initWithAPIClient:mockClient];
+    sut = [[GitHubService alloc] initWithAPIClient:mockClient];
 }
 
 - (void)tearDown {

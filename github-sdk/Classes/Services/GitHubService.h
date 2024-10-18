@@ -1,5 +1,5 @@
 //
-//  GitHubClient.h
+//  GitHubService.h
 //  Pods
 //
 //  Created by Leandro Silva on 17/10/24.
@@ -10,7 +10,7 @@
 #import "Repo.h"
 #import "Tag.h"
 
-@interface GitHubClient : NSObject
+@interface GitHubService : NSObject
 
 @property (nonatomic, strong, readonly) APIClient *apiClient;
 
