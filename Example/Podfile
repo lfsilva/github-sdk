@@ -4,8 +4,4 @@ platform :ios, '10.0'
 
 target 'Example' do
   pod 'github-sdk', :path => '../'
-
-  target 'Tests' do
-    inherit! :search_paths
-  end
 end
