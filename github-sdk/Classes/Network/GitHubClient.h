@@ -8,7 +8,6 @@
 #import <Foundation/Foundation.h>
 #import "APIClient.h"
 #import "Repo.h"
-#import "Tag.h"
 
 @interface GitHubClient : NSObject
 
@@ -16,6 +15,5 @@
 
 - (instancetype)initWithAPIClient:(APIClient *)apiClient;
 - (void)fetchRepos:(NSString*)user completion:(void (^)(NSArray<Repo *> *repos, NSError *error))completion;
-- (void)fetchTags:(NSString*)user andRepo:(NSString*)repo completion:(void (^)(NSArray<Tag *> *tags, NSError *error))completion;
 
 @end
